@@ -16,12 +16,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
  *
  * @author developer
  */
-
-@Endpoint
 public interface PersonEndpoint {
-    
-    @PayloadRoot(namespace = "http://fahadi.com/Person.wsdl", localPart = "IdDetail")
-    @ResponsePayload
     PersonDetail getPersonDetail(@RequestPayload IdDetail id);
     
 }
