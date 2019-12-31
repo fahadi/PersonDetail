@@ -7,13 +7,13 @@ package com.fahadi.service;
 
 import com.fahadi.model.PersonId;
 import com.fahadi.model.PersonModel;
-import com.fahadi.person.IdDetail;
-import com.fahadi.person.PersonDetail;
+
 
 /**
  *
  * @author developer
  */
+
 public interface PersonDetailService {
     
     boolean addPersonDetail(PersonModel PersonModel);

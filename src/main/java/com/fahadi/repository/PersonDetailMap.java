@@ -7,15 +7,16 @@ package com.fahadi.repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.stereotype.Component;
+
 
 /**
  *
  * @author developer
  */
+
 public class PersonDetailMap<K,V> implements Repo<K,V>{
     
-    Map<K,V> map=null;
+    private Map<K,V> map;
     
     public PersonDetailMap(){
         this.map = new HashMap<K,V>();

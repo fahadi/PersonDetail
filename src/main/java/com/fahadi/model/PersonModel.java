@@ -5,10 +5,39 @@
  */
 package com.fahadi.model;
 
+import java.util.UUID;
+
 /**
  *
  * @author developer
  */
-public class PersonModel {
+final public class PersonModel {
+
+    private final String firstName;
+    private final String lastName;
+    private final Integer age;
+    private final UUID uuid;
+
+    public PersonModel(String firstName, String lastName, Integer age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.uuid = UUID.randomUUID();
+    }
     
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getUuid() {
+        return uuid.toString();
+    }    
 }

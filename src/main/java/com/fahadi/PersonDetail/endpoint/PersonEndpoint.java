@@ -19,4 +19,5 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 public interface PersonEndpoint {
     PersonDetail getPersonDetail(@RequestPayload IdDetail id);
     
+    
 }

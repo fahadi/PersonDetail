@@ -24,7 +24,7 @@
             <xsd:element name="IdDetail">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="Id" type="xsd:integer"/>
+                        <xsd:element name="Id" type="xsd:string"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>

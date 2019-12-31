@@ -9,6 +9,16 @@ package com.fahadi.model;
  *
  * @author developer
  */
-public class PersonId {
+final public class PersonId {
+    
+    private final String uuid;
+
+    public PersonId(final String uuid) {
+        this.uuid = uuid;
+    }
+    
+    public String getUuid() {
+        return uuid;
+    }
     
 }
