@@ -22,10 +22,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonDetailServiceImpl implements PersonDetailService{
     
-    private static final Logger logger = LoggerFactory.getLogger(PersonDetailServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(PersonDetailServiceImpl.class);  
+    private final Repo personDetailMap;
     
     @Autowired
-    private Repo personDetailMap;
+    public PersonDetailServiceImpl(Repo personDetailRepo){
+        this.personDetailMap = personDetailRepo;
+    }
+    
+    
     
     
     @PostConstruct
