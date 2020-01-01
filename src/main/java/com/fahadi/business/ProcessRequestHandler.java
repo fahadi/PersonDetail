@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.fahadi.PersonDetail.endpoint;
+package com.fahadi.business;
 
 import com.fahadi.person.IdDetail;
 import com.fahadi.person.MyFaultDetailMessage;
 import com.fahadi.person.PersonDetail;
-import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 
 /**
  *
  * @author developer
  */
-public interface PersonEndpoint {
-    PersonDetail getPersonDetail(@RequestPayload IdDetail id) throws MyFaultDetailMessage;
+public interface ProcessRequestHandler {
     
+    PersonDetail findPersonDetail(IdDetail id) throws MyFaultDetailMessage;
+    boolean AddPersonDetail(PersonDetail personDetail);
     
 }

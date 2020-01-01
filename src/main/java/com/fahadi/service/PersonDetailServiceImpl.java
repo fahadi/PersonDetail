@@ -31,8 +31,6 @@ public class PersonDetailServiceImpl implements PersonDetailService{
     }
     
     
-    
-    
     @PostConstruct
     public void init() throws Exception{
         logger.info("Initialised Service");
