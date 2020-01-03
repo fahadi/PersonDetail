@@ -5,6 +5,7 @@
  */
 package com.fahadi.PersonDetail;
 
+import com.fahadi.util.MarshalUtil;
 import com.fahadi.person.MyFaultDetail;
 import com.fahadi.person.MyFaultDetailMessage;
 import javax.xml.bind.JAXBContext;
@@ -28,23 +29,18 @@ public class DetailSoapFaultDefinitionExceptionResolver extends
     
     private static final Logger logger = LoggerFactory.getLogger(DetailSoapFaultDefinitionExceptionResolver.class);
     
-    private final Marshaller marshaller;
-    
-    public DetailSoapFaultDefinitionExceptionResolver() throws JAXBException{
-        JAXBContext jAXBContext = JAXBContext.newInstance(MyFaultDetail.class);
-        marshaller = jAXBContext.createMarshaller();
-    }
-    
     @Override
     protected void customizeFault(Object endpoint, Exception ex, 
             SoapFault fault) {
         logger.warn("Exception processed ", ex.getLocalizedMessage());
         if (ex instanceof MyFaultDetailMessage) {
-            MyFaultDetail serviceFault = ((MyFaultDetailMessage) ex).getFaultInfo();
-            SoapFaultDetail detail = fault.addFaultDetail();
-            Result result = detail.getResult();
+            final MyFaultDetail serviceFault = ((MyFaultDetailMessage) ex).getFaultInfo();
+            final SoapFaultDetail detail = fault.addFaultDetail();
+            final Result result = detail.getResult();
             try {
-                this.marshaller.marshal(serviceFault,result);
+                final MarshalUtil<MyFaultDetail> marshalUtil = new MarshalUtil<>(serviceFault);
+                final Marshaller marshaller = marshalUtil.getMarshaller();
+                marshaller.marshal(serviceFault,result);
             } catch (JAXBException ex1) {
                 logger.error(ex1.getMessage());
             }
