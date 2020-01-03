@@ -8,7 +8,6 @@ package com.fahadi.PersonDetail;
 import com.fahadi.util.MarshalUtil;
 import com.fahadi.person.MyFaultDetail;
 import com.fahadi.person.MyFaultDetailMessage;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.transform.Result;
