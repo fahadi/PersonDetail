@@ -46,7 +46,7 @@ public class ProcessRequestHandlerImpl implements ProcessRequestHandler {
         if (personModel != null) {
             logger.info("Creating PersonDetail Schema object");
             ObjectFactory ob = new ObjectFactory();
-            PersonDetail personDetail = ob.createPersonDetail();
+            final PersonDetail personDetail = ob.createPersonDetail();
             personDetail.setAge(BigInteger.valueOf(personModel.getAge()));
             personDetail.setFirstName(personModel.getFirstName());
             personDetail.setLastName(personModel.getLastName());
@@ -54,8 +54,8 @@ public class ProcessRequestHandlerImpl implements ProcessRequestHandler {
             return personDetail;
         }
         logger.error("personDetailService found no reference");
-        String message="personDetailService found no reference";
-        MyFaultDetail faultInfo = new MyFaultDetail();
+        final String message="personDetailService found no reference";
+        final MyFaultDetail faultInfo = new MyFaultDetail();
         faultInfo.setErrorCode(BigInteger.valueOf(1000));
         faultInfo.setErrorType("Failed to find Person Detail");
         throw new MyFaultDetailMessage(message,faultInfo);

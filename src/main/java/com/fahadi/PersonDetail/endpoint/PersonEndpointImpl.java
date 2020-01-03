@@ -28,14 +28,14 @@ public class PersonEndpointImpl implements PersonEndpoint{
     private final ProcessRequestHandler processRequestHandler;
     
     @Autowired
-    public PersonEndpointImpl(ProcessRequestHandler processRequestHandler){
+    public PersonEndpointImpl(final ProcessRequestHandler processRequestHandler){
         this.processRequestHandler = processRequestHandler;
     }
 
     @Override
     @PayloadRoot(namespace = "http://fahadi.com/Person.wsdl", localPart = "IdDetail")
     @ResponsePayload
-    public PersonDetail getPersonDetail(@RequestPayload IdDetail id) throws MyFaultDetailMessage {
+    public PersonDetail getPersonDetail(@RequestPayload final IdDetail id) throws MyFaultDetailMessage {
         logger.info("getPersonDetail called successfully");
         return processRequestHandler.findPersonDetail(id);
     }
